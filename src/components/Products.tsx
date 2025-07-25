@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import chairImage from '@/assets/chair-1.jpg';
 import tableImage from '@/assets/table-1.jpg';
 import bedImage from '@/assets/bed-1.jpg';
@@ -61,7 +62,13 @@ const Products = () => {
   return (
     <section id="products" className="section-padding">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Our Product Collection
           </h2>
@@ -69,23 +76,36 @@ const Products = () => {
             Discover our curated selection of premium furniture pieces, 
             each designed to enhance your living space with style and functionality.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div 
-              key={product.id} 
+          {products.map((product, index) => (
+            <motion.div 
+              key={product.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
               className="card-furniture group cursor-pointer"
             >
               <div className="relative overflow-hidden rounded-lg mb-4">
-                <img 
+                <motion.img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-64 object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-accent/90 text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                  className="absolute top-4 right-4 bg-accent/90 text-accent-foreground px-3 py-1 rounded-full text-sm font-medium"
+                >
                   {product.category}
-                </div>
+                </motion.div>
               </div>
               
               <div className="space-y-4">
@@ -93,11 +113,15 @@ const Products = () => {
                   {product.name}
                 </h3>
                 
-                <button className="btn-know-more w-full">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-know-more w-full"
+                >
                   Know More
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

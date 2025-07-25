@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const Testimonials = () => {
@@ -42,7 +43,13 @@ const Testimonials = () => {
   return (
     <section className="section-padding bg-secondary/30">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             What Our Customers Say
           </h2>
@@ -50,35 +57,68 @@ const Testimonials = () => {
             Don't just take our word for it. Here's what our satisfied customers 
             have to say about their experience with FurniCraft.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div 
-              key={testimonial.id} 
+          {testimonials.map((testimonial, index) => (
+            <motion.div 
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ y: -5 }}
               className="card-furniture text-center"
             >
               <div className="mb-6">
-                <img 
+                <motion.img 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.3, type: "spring", stiffness: 200 }}
                   src={testimonial.avatar} 
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full mx-auto mb-4 object-cover shadow-soft"
                 />
-                <h4 className="text-lg font-semibold text-foreground mb-1">
+                <motion.h4 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.4 }}
+                  className="text-lg font-semibold text-foreground mb-1"
+                >
                   {testimonial.name}
-                </h4>
-                <p className="text-sm text-muted-foreground mb-4">
+                </motion.h4>
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.5 }}
+                  className="text-sm text-muted-foreground mb-4"
+                >
                   {testimonial.role}
-                </p>
-                <div className="flex justify-center space-x-1 mb-4">
+                </motion.p>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.6 }}
+                  className="flex justify-center space-x-1 mb-4"
+                >
                   {renderStars(testimonial.rating)}
-                </div>
+                </motion.div>
               </div>
               
-              <blockquote className="text-muted-foreground italic leading-relaxed">
+              <motion.blockquote 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 + 0.7 }}
+                className="text-muted-foreground italic leading-relaxed"
+              >
                 "{testimonial.comment}"
-              </blockquote>
-            </div>
+              </motion.blockquote>
+            </motion.div>
           ))}
         </div>
       </div>
