@@ -4,61 +4,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Furniture Website Design System - Warm, Modern, Scandinavian-Inspired
+/* Luxury Furniture Website Design System - Gold & Black Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Warm, inviting backgrounds */
-    --background: 35 20% 98%;
-    --foreground: 25 15% 15%;
+    /* Luxury Gold & Black backgrounds */
+    --background: 0 0% 8%;
+    --foreground: 45 100% 85%;
 
     /* Card and surface colors */
-    --card: 35 30% 96%;
-    --card-foreground: 25 15% 15%;
+    --card: 0 0% 12%;
+    --card-foreground: 45 100% 85%;
 
-    --popover: 35 30% 96%;
-    --popover-foreground: 25 15% 15%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 45 100% 85%;
 
-    /* Primary - Warm Brown */
-    --primary: 25 45% 35%;
-    --primary-foreground: 35 20% 98%;
-    --primary-glow: 25 55% 45%;
+    /* Primary - Luxury Gold */
+    --primary: 45 100% 60%;
+    --primary-foreground: 0 0% 8%;
+    --primary-glow: 45 100% 70%;
 
-    /* Secondary - Soft Cream */
-    --secondary: 35 25% 90%;
-    --secondary-foreground: 25 15% 15%;
+    /* Secondary - Dark Gold */
+    --secondary: 45 80% 25%;
+    --secondary-foreground: 45 100% 85%;
 
     /* Muted tones */
-    --muted: 35 15% 88%;
-    --muted-foreground: 25 10% 45%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 45 20% 65%;
 
-    /* Accent - Olive Green */
-    --accent: 75 25% 45%;
-    --accent-foreground: 35 20% 98%;
-    --accent-light: 75 30% 85%;
+    /* Accent - Champagne Gold */
+    --accent: 45 90% 75%;
+    --accent-foreground: 0 0% 8%;
+    --accent-light: 45 95% 85%;
 
     /* Status colors */
     --destructive: 0 75% 55%;
     --destructive-foreground: 35 20% 98%;
 
     /* Borders and inputs */
-    --border: 35 15% 85%;
-    --input: 35 15% 90%;
-    --ring: 25 45% 35%;
+    --border: 45 30% 25%;
+    --input: 0 0% 15%;
+    --ring: 45 100% 60%;
 
     /* Design tokens */
     --radius: 0.75rem;
     
     /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(35 30% 96%), hsl(35 20% 92%));
-    --gradient-hero: linear-gradient(135deg, hsl(25 45% 35% / 0.9), hsl(75 25% 45% / 0.8));
+    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 18%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8% / 0.9), hsl(45 100% 60% / 0.1));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 60%), hsl(45 100% 70%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(25 15% 15% / 0.08);
-    --shadow-elevated: 0 8px 30px hsl(25 15% 15% / 0.12);
-    --shadow-warm: 0 6px 25px hsl(25 45% 35% / 0.15);
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-gold: 0 6px 25px hsl(45 100% 60% / 0.2);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -126,28 +127,38 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground;
+    font-family: 'Playfair Display', 'Inter', serif;
   }
 }
 
 @layer components {
-  /* Button variants for furniture website */
+  /* Button variants for luxury furniture website */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
-    @apply px-8 py-4 rounded-lg font-medium shadow-warm;
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-elevated;
+    background: var(--gradient-gold);
+    @apply text-primary-foreground px-8 py-4 rounded-lg font-medium;
+    box-shadow: var(--shadow-gold);
+    @apply transition-all duration-300 hover:scale-105;
   }
   
   .btn-know-more {
-    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg;
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg;
     @apply font-medium transition-all duration-300;
-    @apply hover:bg-accent/80 hover:scale-105 hover:shadow-soft;
+    @apply hover:bg-primary-glow hover:scale-105;
+    box-shadow: var(--shadow-soft);
   }
   
   .card-furniture {
-    @apply bg-card rounded-xl p-6 shadow-soft;
+    @apply bg-card rounded-xl p-6;
+    background: var(--gradient-luxury);
+    box-shadow: var(--shadow-soft);
     @apply transition-all duration-300 hover:shadow-elevated hover:-translate-y-1;
-    background: var(--gradient-warm);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .sticky-nav {
+    @apply fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md;
+    border-bottom: 1px solid hsl(var(--border));
   }
   
   .section-padding {
