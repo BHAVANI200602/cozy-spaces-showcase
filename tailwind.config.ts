@@ -72,6 +72,7 @@ export default {
 				'soft': 'var(--shadow-soft)',
 				'elevated': 'var(--shadow-elevated)',
 				'warm': 'var(--shadow-warm)',
+				'gold': 'var(--shadow-gold)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
