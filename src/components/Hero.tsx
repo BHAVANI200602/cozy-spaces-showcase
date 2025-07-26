@@ -27,10 +27,10 @@ const Hero = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-playfair"
         >
-          Furniture that
-          <span className="block text-accent-light">Transforms Spaces</span>
+          <span className="text-primary-glow">SSV WOOD FURNITURE</span>
+          <span className="block text-3xl md:text-4xl text-primary-foreground">Crafting Dreams into Reality</span>
         </motion.h1>
         
         <motion.p 

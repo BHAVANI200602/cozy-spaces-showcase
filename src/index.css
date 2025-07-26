@@ -147,6 +147,16 @@ All colors MUST be HSL.
     @apply hover:bg-primary-glow hover:scale-105;
     box-shadow: var(--shadow-soft);
   }
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
   
   .card-furniture {
     @apply bg-card rounded-xl p-6;
