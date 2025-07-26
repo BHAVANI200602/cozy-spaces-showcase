@@ -65,9 +65,9 @@ const HorizontalCategories = () => {
               >
                 <motion.button
                   onClick={() => scrollToSection(category.id)}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative bg-card border border-border rounded-xl p-6 min-w-[200px] text-left hover:border-primary transition-all duration-300 shadow-sm hover:shadow-gold"
+                  whileHover={{ scale: 1.02, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative bg-card border border-border rounded-xl p-6 min-w-[200px] text-left hover:border-primary glow-on-hover"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
